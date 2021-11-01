@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Aelia.Api.Data;
+using Aelia.Api.Mappers;
 using Aelia.Api.Models.Db;
 using Aelia.Api.Models.Requests;
 using Aelia.Api.Models.Responses;
@@ -17,18 +18,21 @@ namespace Aelia.Api.Controllers
     public class TicketController : ControllerBase
     {
         private readonly ILogger<ProjectController> _logger;
+        private readonly IApiResponseMapper<Ticket, TicketApiResponse> _ticketApiResponseMapper;
         private readonly ApplicationDbContext _dbContext;
 
         public TicketController(
             ILogger<ProjectController> logger,
+            IApiResponseMapper<Ticket, TicketApiResponse> ticketApiResponseMapper,
             ApplicationDbContext dbContext)
         {
             _logger = logger;
+            _ticketApiResponseMapper = ticketApiResponseMapper;
             _dbContext = dbContext;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Ticket>> GetTicketsForProject(string projectName)
+        public async Task<IEnumerable<TicketApiResponse>> GetTicketsForProject(string projectName)
         {
             var project = await _dbContext.Projects.FirstOrDefaultAsync(p => p.Name == projectName);
 
@@ -37,11 +41,12 @@ namespace Aelia.Api.Controllers
                 throw new ArgumentException($"Project '{projectName}' not found!");
             }
 
-            return _dbContext.Tickets.Where(x => x.Project == project).ToList();
+            var tickets = _dbContext.Tickets.Where(x => x.Project == project).ToList();
+            return _ticketApiResponseMapper.MapDbToApiResponseEnumerable(tickets);
         }
 
         [HttpPost]
-        public async Task<TicketListing> AddNewProjectAsync(AddNewTicketRequest newTicketRequest)
+        public async Task<TicketApiResponse> AddNewProjectAsync(AddNewTicketRequest newTicketRequest)
         {
             var project = await _dbContext.Projects.FirstOrDefaultAsync(p => p.Name == newTicketRequest.Project);
 
@@ -59,14 +64,7 @@ namespace Aelia.Api.Controllers
             await _dbContext.AddAsync(newTicket);
             await _dbContext.SaveChangesAsync();
 
-            var ticketListing = new TicketListing()
-            {
-                Id = newTicket.Id,
-                Project = newTicket.Project.Name,
-                Title = newTicket.Title
-            };
-
-            return ticketListing;
+            return _ticketApiResponseMapper.MapDbToApiResponse(newTicket);
         }
     }
 }
