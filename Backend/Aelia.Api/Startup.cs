@@ -1,17 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Aelia.Api.Data;
+using Aelia.Api.Mappers;
+using Aelia.Api.Models.Db;
+using Aelia.Api.Models.Responses;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 namespace Aelia.Api
@@ -40,6 +36,8 @@ namespace Aelia.Api
                     Version = "v1"
                 });
             });
+
+            services.AddSingleton<IApiResponseMapper<Ticket, TicketApiResponse>, TicketResponseMapper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
