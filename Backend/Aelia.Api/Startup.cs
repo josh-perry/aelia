@@ -37,6 +37,12 @@ namespace Aelia.Api
                 });
             });
 
+            services.AddCors(options => {
+                options.AddPolicy("AngularFrontend", builder => {
+                    builder.AllowAnyOrigin();
+                });
+            });
+
             services.AddSingleton<IApiResponseMapper<Ticket, TicketApiResponse>, TicketResponseMapper>();
         }
 
@@ -54,6 +60,8 @@ namespace Aelia.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("AngularFrontend");
 
             app.UseAuthorization();
 
