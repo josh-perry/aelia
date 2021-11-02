@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Ticket } from './ticket';
+import { Project } from './project';
 
 import { environment } from '../environments/environment';
 
@@ -9,11 +9,11 @@ import { environment } from '../environments/environment';
   providedIn: 'root'
 })
 
-export class ProjectTicketsService {
+export class ProjectService {
   constructor(private http: HttpClient) { }
 
-  getTicketsForProject(project: String): Observable<Ticket[]> {
-    const url = `${environment.apiBaseUrl}/Ticket?projectName=${project}`;
-    return this.http.get<Ticket[]>(url);
+  getProjects(): Observable<Project[]> {
+    const url = `${environment.apiBaseUrl}/Project`;
+    return this.http.get<Project[]>(url);
   }
 }

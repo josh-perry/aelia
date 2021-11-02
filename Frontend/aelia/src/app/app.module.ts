@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { TicketListComponent } from './ticket-list/ticket-list.component';
 import { ProjectTicketListComponent } from './project-ticket-list/project-ticket-list.component';
+import { ProjectListComponent } from './project-list/project-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TicketComponent,
     TicketListComponent,
-    ProjectTicketListComponent
+    ProjectTicketListComponent,
+    ProjectListComponent
   ],
   imports: [
     BrowserModule,
