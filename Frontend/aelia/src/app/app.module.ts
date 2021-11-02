@@ -8,6 +8,7 @@ import { TicketComponent } from './ticket/ticket.component';
 import { TicketListComponent } from './ticket-list/ticket-list.component';
 import { ProjectTicketListComponent } from './project-ticket-list/project-ticket-list.component';
 import { ProjectListComponent } from './project-list/project-list.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ProjectListComponent } from './project-list/project-list.component';
     TicketComponent,
     TicketListComponent,
     ProjectTicketListComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
