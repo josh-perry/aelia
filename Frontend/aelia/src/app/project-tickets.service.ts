@@ -11,8 +11,8 @@ export class ProjectTicketsService {
   constructor(private http: HttpClient) { }
 
   getTicketsForProject(project: String): Observable<Ticket[]> {
-    // TODO: don't harccode this, obviously
-    const url = "https://localhost:5001/Ticket?projectName=TEST";
+    // TODO: don't hardcode this, obviously
+    const url = `https://localhost:5001/Ticket?projectName=${project}`;
     return this.http.get<Ticket[]>(url);
   }
 }
