@@ -16,4 +16,9 @@ export class ProjectTicketsService {
     const url = `${environment.apiBaseUrl}/Ticket?projectName=${project}`;
     return this.http.get<Ticket[]>(url);
   }
+
+  getTicketFullDetails(ticketName: String): Observable<Ticket> {
+    const url = `${environment.apiBaseUrl}/Ticket/${ticketName}`;
+    return this.http.get<Ticket>(url);
+  }
 }
