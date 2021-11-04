@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  vertical-align: middle;
+}
+
+h1 {
+  flex: 1;
+  padding-left: 12px;
+}
+
+.top-buttons {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.bottom-buttons {
+  display: flex;
+  flex-direction: row-reverse;
+}

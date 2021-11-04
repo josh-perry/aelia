@@ -1,2 +1,48 @@
-<h1 class="title is-1">{{ ticket.project}}-{{ ticket.id}}: {{ ticket.title }}</h1>
+<div class="header">
+  <app-ticket-tag ticketName="{{ ticket.project }}-{{ ticket.id }}"></app-ticket-tag>
+
+  <h1 class="title is-1">{{ ticket.title }}</h1>
+</div>
+
+<hr/>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">Subject</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <input class="input" type="text" placeholder="e.g. Partnership opportunity">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">Project</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <div class="select is-fullwidth">
+          <select>
+            <option>TEST</option>
+            <option>new project</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr/>
+
 <textarea class="textarea">{{ ticket.description }}</textarea>
+
+<hr/>
+
+<div class="bottom-buttons">
+  <button class="button is-primary">Save</button>
+</div>

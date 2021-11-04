@@ -10,6 +10,7 @@ import { ProjectTicketListComponent } from './project-ticket-list/project-ticket
 import { ProjectListComponent } from './project-list/project-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FullTicketViewComponent } from './full-ticket-view/full-ticket-view.component';
+import { TicketTagComponent } from './ticket-tag/ticket-tag.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FullTicketViewComponent } from './full-ticket-view/full-ticket-view.com
     ProjectTicketListComponent,
     ProjectListComponent,
     NavbarComponent,
-    FullTicketViewComponent
+    FullTicketViewComponent,
+    TicketTagComponent
   ],
   imports: [
     BrowserModule,
