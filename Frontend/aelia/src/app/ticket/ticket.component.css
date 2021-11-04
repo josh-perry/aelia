@@ -1,0 +1,24 @@
+.ticket {
+  border: 1px solid #CACACA;
+  display: flex;
+  min-height: 80px;
+
+  margin: 8px;
+}
+
+.top-details {
+  display: block;
+  flex: 1;
+  padding: 12px;
+}
+
+.ticket-name {
+  background: #F06543FF;
+  text-orientation: sideways-left;
+  writing-mode: vertical-rl;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  padding: 4px;
+  color: white;
+}

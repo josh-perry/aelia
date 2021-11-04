@@ -1,1 +1,11 @@
-<p>{{ ticket.project }}-{{ ticket.id }}</p>
+<div class="ticket">
+  <div class="ticket-name">
+    {{ ticket.project }}-{{ ticket.id }}
+  </div>
+
+  <a class="top-details"
+     href="/project/ticket/{{ ticket.project }}-{{ ticket.id }}">
+
+    <p>{{ ticket.title }}</p>
+  </a>
+</div>

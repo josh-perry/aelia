@@ -1,5 +1,5 @@
 <ul>
   <li *ngFor="let ticket of tickets">
-    <a href="/project/ticket/{{ ticket.project}}-{{ ticket.id }}">{{ ticket.project }}-{{ ticket.id }}: {{ ticket.title }}</a>
+    <app-ticket [ticket]="ticket"></app-ticket>
   </li>
 </ul>
