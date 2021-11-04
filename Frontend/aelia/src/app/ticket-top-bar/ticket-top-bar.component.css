@@ -1,0 +1,19 @@
+:host {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  display: inline-flex;
+}
+
+.top-button {
+  line-height: 56px;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  height: 56px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 10px;
+}

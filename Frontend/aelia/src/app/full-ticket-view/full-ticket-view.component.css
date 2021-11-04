@@ -13,7 +13,7 @@ h1 {
   flex-direction: row-reverse;
 }
 
-.bottom-buttons {
+.button-row {
   display: flex;
   flex-direction: row-reverse;
 }
