@@ -13,7 +13,10 @@ ul {
   vertical-align: middle;
   display: inline-block;
   height: 56px;
-  width: 120px;
+  width: 80px;
   padding-left: 10px;
   padding-right: 10px;
+
+  margin-left: 4px;
+  margin-right: 4px;
 }
