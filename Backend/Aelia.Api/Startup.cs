@@ -44,6 +44,7 @@ namespace Aelia.Api
             });
 
             services.AddSingleton<IApiResponseMapper<Ticket, TicketApiResponse>, TicketResponseMapper>();
+            services.AddSingleton<IApiResponseMapper<Ticket, TicketFullDetailsApiResponse>, TicketFullDetailsResponseMapper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
