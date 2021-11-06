@@ -97,5 +97,50 @@ namespace Aelia.Api.Controllers
 
             return Json(_ticketFullDetailsApiResponseMapper.MapDbToApiResponse(ticket));
         }
+
+        [HttpPost]
+        [Route("{ticketName}")]
+        public async Task<IActionResult> EditTicket(string ticketName, EditTicketRequest request)
+        {
+            // TODO: consolidate this ticket-finding code into one place
+            var ticketNameSplit = ticketName.Split("-");
+
+            if (ticketNameSplit.Length != 2)
+            {
+                throw new ArgumentException($"Ticket name `{ticketName}` is malformed!");
+            }
+
+            var projectKey = ticketNameSplit[0];
+            if (!int.TryParse(ticketNameSplit[1], out var ticketId))
+            {
+                throw new ArgumentException($"Ticket name `{ticketName}` is malformed!");
+            }
+
+            var project = await _dbContext.Projects.FirstOrDefaultAsync(p => p.Name == projectKey);
+            var ticket = await _dbContext.Tickets.FirstOrDefaultAsync(t => t.Project == project && t.Id == ticketId);
+
+            if (ticket == null)
+            {
+                return NotFound();
+            }
+
+            ticket = UpdateTicketFromRequest(ticket, request);
+
+            _dbContext.Update(ticket);
+            await _dbContext.SaveChangesAsync();
+
+            return Json(_ticketFullDetailsApiResponseMapper.MapDbToApiResponse(ticket));
+        }
+
+        private Ticket UpdateTicketFromRequest(Ticket ticket, EditTicketRequest request)
+        {
+            if (!string.IsNullOrEmpty(request.Description) && ticket.Description != request.Description)
+                ticket.Description = request.Description;
+
+            if (!string.IsNullOrEmpty(request.Title) && ticket.Title != request.Title)
+                ticket.Title = request.Title;
+
+            return ticket;
+        }
     }
 }
