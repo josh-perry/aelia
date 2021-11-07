@@ -1,0 +1,1 @@
+<input id="title" [formControl]="title" class="title is-1" type="text" [value]="(ticket$ | async)?.title" (keydown.enter)="save()"/>

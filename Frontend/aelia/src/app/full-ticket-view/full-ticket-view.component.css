@@ -1,12 +1,7 @@
 .header {
   display: flex;
   vertical-align: middle;
-  height: 60px;
-}
-
-h1 {
-  flex: 1;
-  padding-left: 12px;
+  height: 70px;
 }
 
 .top-buttons {

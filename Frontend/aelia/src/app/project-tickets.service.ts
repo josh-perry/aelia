@@ -21,4 +21,14 @@ export class ProjectTicketsService {
     const url = `${environment.apiBaseUrl}/Ticket/${ticketName}`;
     return this.http.get<Ticket>(url);
   }
+
+  setTitle(ticketName: string, newTicketTitle: string) {
+    const url = `${environment.apiBaseUrl}/Ticket/${ticketName}`;
+    const body = {
+      title: newTicketTitle
+    };
+
+    this.http.post(url, body).subscribe();
+    return;
+  }
 }

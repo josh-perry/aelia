@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { TicketTagComponent } from './ticket-tag/ticket-tag.component';
 import { TicketTopBarComponent } from './ticket-top-bar/ticket-top-bar.component';
 
 import { ticketReducer } from './state/ticket/ticket.reducers';
+import { TicketEditTitleComponent } from './ticket-edit-title/ticket-edit-title.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,16 @@ import { ticketReducer } from './state/ticket/ticket.reducers';
     NavbarComponent,
     FullTicketViewComponent,
     TicketTagComponent,
-    TicketTopBarComponent
+    TicketTopBarComponent,
+    TicketEditTitleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({ ticket: ticketReducer })
+    StoreModule.forRoot({ ticket: ticketReducer }),
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
