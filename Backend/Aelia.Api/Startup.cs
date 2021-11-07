@@ -40,6 +40,8 @@ namespace Aelia.Api
             services.AddCors(options => {
                 options.AddPolicy("AngularFrontend", builder => {
                     builder.AllowAnyOrigin();
+                    builder.AllowAnyHeader();
+                    builder.AllowAnyMethod();
                 });
             });
 
