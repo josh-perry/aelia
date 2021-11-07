@@ -1,6 +1,6 @@
-export interface Ticket {
-  id: Number;
-  title: String;
-  project: String;
-  description?(flag: any): String;
+export class Ticket {
+  id: number = 0;
+  title: string = "";
+  project: string = "";
+  description: string = "";
 }

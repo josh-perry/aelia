@@ -14,7 +14,8 @@ export class TicketComponent implements OnInit {
     this.ticket = {
       id: 0,
       title: "",
-      project: ""
+      project: "",
+      description: ""
     }
   }
 
