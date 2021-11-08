@@ -17,6 +17,7 @@ import { TicketTopBarComponent } from './ticket-top-bar/ticket-top-bar.component
 
 import { ticketReducer } from './state/ticket/ticket.reducers';
 import { TicketEditTitleComponent } from './ticket-edit-title/ticket-edit-title.component';
+import { TicketEditDescriptionComponent } from './ticket-edit-description/ticket-edit-description.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { TicketEditTitleComponent } from './ticket-edit-title/ticket-edit-title.
     FullTicketViewComponent,
     TicketTagComponent,
     TicketTopBarComponent,
-    TicketEditTitleComponent
+    TicketEditTitleComponent,
+    TicketEditDescriptionComponent
   ],
   imports: [
     BrowserModule,
