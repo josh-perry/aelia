@@ -3,6 +3,10 @@
   padding-left: 12px;
 }
 
+div {
+  height: 100%;
+}
+
 input {
   border: 0;
   height: 100%;
