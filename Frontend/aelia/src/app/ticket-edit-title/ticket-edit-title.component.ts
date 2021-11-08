@@ -4,6 +4,7 @@ import { FormControl } from '@angular/forms';
 
 import { ProjectTicketsService } from '../project-tickets.service';
 import { Ticket } from '../ticket';
+import { setTitle } from '../state/ticket/ticket.actions';
 
 @Component({
   selector: 'app-ticket-edit-title',
@@ -21,6 +22,6 @@ export class TicketEditTitleComponent {
   }
 
   save() {
-    this.ticket$.subscribe(t => this.projectTicketsService.setTitle(`${t.project}-${t.id}`, this.title.value));
+    this.store.dispatch(setTitle({ title: this.title.value}));
   }
 }

@@ -1,1 +1,3 @@
-<input id="title" [formControl]="title" class="title is-1" type="text" [value]="(ticket$ | async)?.title" (keydown.enter)="save()"/>
+<div *ngIf="ticket$ | async as ticket">
+  <input id="title" [formControl]="title" class="title is-1" type="text" [value]="ticket.title" (keyup)="save()"/>
+</div>

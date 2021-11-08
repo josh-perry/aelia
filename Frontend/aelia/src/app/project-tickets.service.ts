@@ -22,6 +22,11 @@ export class ProjectTicketsService {
     return this.http.get<Ticket>(url);
   }
 
+  setTicket(ticketName: string, ticket: Ticket) {
+    const url = `${environment.apiBaseUrl}/Ticket/${ticketName}`;
+    this.http.post(url, ticket).subscribe();
+  }
+
   setTitle(ticketName: string, newTicketTitle: string) {
     const url = `${environment.apiBaseUrl}/Ticket/${ticketName}`;
     const body = {
