@@ -1,4 +1,2 @@
-<div *ngIf="ticket$ | async as ticket">
-  <textarea id="description" [value]="ticket.description" [formControl]="description" type="text" class="textarea" (keyup)="save()">
-  </textarea>
-</div>
+<textarea *ngIf="ticket$ | async as ticket" id="description" [value]="ticket.description" [formControl]="description" type="text" class="textarea" rows=10 (keyup)="save()">
+</textarea>
